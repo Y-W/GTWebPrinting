@@ -12,7 +12,7 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                             
     let SELECT_PRINTER_ALERT = 1
     let PUT_USR_ALERT = 2
-    var key: Void
+    var key: Character?
     
     override func viewDidLoad() {
         super.viewDidLoad()
