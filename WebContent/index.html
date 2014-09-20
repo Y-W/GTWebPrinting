@@ -4,61 +4,71 @@
 <meta charset="UTF-8">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="index.js"></script>
+<link rel="stylesheet" href="style.css">
 <title>GTWebPrint</title>
 </head>
 <body>
-
+<table class="title">
+	<tr>
+		<td><img alt="img/GeorgiaTech.png" src="img/GTWebPrinting.png"></td>
+		<td><h1>Georgia Tech Online Printing Service</h1></td>
+	</tr>
+</table>
+<div class="mian">
 <form id="releaseWrapper" enctype="multipart/form-data" action="printfile.php" method="POST">
 
 	<table>
-	<tr>
-		<td>GT username</td> 
-		<td>
-			<input type="text" name="usr" id="usr"><br>
-		</td>
-	</tr>
-	<tr>
-		<td>Printer</td>
-		<td>	
-			<select name="ptr" form="wrapper" id="ptr">
-				<option>Choose a printer</option>
-				<option value="Mobile_black">MobileBlack</option>
-				<option value="Mobile_color">MobileColor</option>
-			</select>
-		</td>
-	</tr>
-	<tr>
-		<td>Please specify a file</td>
-		<td>
-			<input type="file" name="file" id="file">
-		</td>
-	</tr>	
-	<tr>
-		<td><input type="submit" name="submit" value="Submit"></td>
-	</tr>
+		<tr>
+			<td>GT username</td> 
+			<td>
+				<input type="text" name="usr" id="usr"><br>
+			</td>
+		</tr>
+		<tr>
+			<td>Printer</td>
+			<td>	
+				<select name="ptr" form="wrapper" id="ptr">
+					<option>Choose a printer</option>
+					<option value="Mobile_black">MobileBlack</option>
+					<option value="Mobile_color">MobileColor</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>Please specify a file</td>
+			<td>
+				<input type="file" name="file" id="file">
+			</td>
+		</tr>	
+		<tr>
+			<td><input type="submit" name="submit" value="Submit"></td>
+		</tr>
 	</table>
 </form>
 
 <div>
-	<p>Find printing status by GT usrname</p>
+	
 	<form id="queryWrapper" action="getstatus.php" method="GET">
 		<table>
+			<tr>
+				<td>Find printing status by GT usrname</td>
+				<td></td>
+			</tr>
 			<tr>
 				<td>Your GT username</td>
 				<td><input type="text" name="usr" id="usr"></td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="query" value="query"></td>
-			</tr>
-			<tr><td><input type="hidden" name="random" value=2></td></tr>
+				<td></td>
+			</tr>			
 		</table>
+		<input type="hidden" name="random" value=2>
+		<div id="usrInfo"></div>
 	</form>
-	
-	<div id="usrInfo"></div>
-
 </div>
-
-<p></p>
-
+</div>
 </body>
 </html>
+
+

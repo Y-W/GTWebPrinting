@@ -16,17 +16,18 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     let ENTER_USR_ALERT = 2
     
     let serverhost = "192.168.1.120"
-    let path = "/printfile.php"
+    let postPath = "/printfile.php"
+    let getPath = "/getstatus.php"
     var file: NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        statusField.text = ""
     }
     
     func displayPrintAlert(file: NSURL) {
@@ -45,7 +46,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             message: "Please enter gt username", delegate: self,
             cancelButtonTitle: "Cancel",
             otherButtonTitles: "Continue")
-        alertView.tag = PRINT_DOCUMENT_ALERT
+        alertView.tag = ENTER_USR_ALERT
         alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput;
         alertView.show()
     }
@@ -77,7 +78,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
 //        println(NSString(data: fileData, encoding: NSUTF8StringEncoding))
         
         var url = "http://".stringByAppendingString(serverhost)
-            .stringByAppendingString(path)
+            .stringByAppendingString(postPath)
         
         var postRequest = NSMutableURLRequest(URL: NSURL(string: url))
         postRequest.setValue(NSString(format: "multipart/form-data; boundary=%@", boundary), forHTTPHeaderField: "Content-Type")
@@ -91,18 +92,33 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         else {
             println("Request Failed")
         }
+    }
+    
+    func getPrintStatus(usr: String) {
         
+        var url = "http://".stringByAppendingString(serverhost)
+            .stringByAppendingString(getPath)
+            .stringByAppendingString("?usr=")
+            .stringByAppendingString(usr)
+        
+        var statusData = NSData(contentsOfURL: NSURL(string: url))
+        statusField.text = NSString(data: statusData, encoding: NSUTF8StringEncoding)
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
         
+        var usr = alertView.textFieldAtIndex(0).text
         if alertView.tag == PRINT_DOCUMENT_ALERT {
-            var usr = alertView.textFieldAtIndex(0).text
             if buttonIndex == 1 {
                 printDocument(usr, printer: "Mobile_black")
             }
             if buttonIndex == 2 {
                 printDocument(usr, printer: "Mobile_color")
+            }
+        }
+        else {
+            if buttonIndex == 1 {
+                getPrintStatus(usr)
             }
         }
     }
