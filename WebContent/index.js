@@ -16,14 +16,14 @@ $(document).ready(function(){
 		formData.append("ptr", $('#ptr').val());
 		$.each(files, function(key, value)
 		{
-					formData.append(key, value);
+					formData.append("file", value);
 		});
 		console.log(formData);
 		
 		
 		//$.post("http://192.168.1.120/printfile.php", formData, function(data){});
 		$.ajax({
-	        url: 'http://192.168.1.120/printfile.php',
+	        url: 'printfile.php',
 	        type: 'POST',
 	        data: formData,
 	        cache: false,
