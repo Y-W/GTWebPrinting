@@ -1,0 +1,7 @@
+.title td:nth-child(1) {
+    border-right: 200px solid transparent;
+    -webkit-background-clip: padding;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+}
+

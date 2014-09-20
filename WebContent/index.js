@@ -1,5 +1,6 @@
 
 $(document).ready(function(){
+	
 	var files;
 	$('#file').on('change', 
 	function prepareUpload(event){
@@ -30,6 +31,7 @@ $(document).ready(function(){
 	        contentType: false,
 	        success: function(data, textStatus, jqXHR)
 	        {
+	        	alert("we received your files");
 	        	if(typeof data.error === 'undefined')
 	        	{
 	        		// Success so call function to process the form
@@ -40,7 +42,7 @@ $(document).ready(function(){
 	        		// Handle errors here
 	        		console.log('ERRORS: ' + data.error);
 	        	}
-	        	alert("we received your files");
+	        	
 	        },
 	        error: function(jqXHR, textStatus, errorThrown)
 	        {
@@ -53,8 +55,9 @@ $(document).ready(function(){
 	
 	$("#queryWrapper").submit(function(){
 		event.preventDefault();
-		$.get("http://192.168.1.120/getstatus.php", $("#queryWrapper").serialize(), function(data){
-			$("#usrinfo").html(data);
+		$.get("getstatus", $("#queryWrapper").serialize(), function(data){
+			console.log(data);
+			$("#usrInfo").html(data);
 		}, "text");
 		
 	});
