@@ -32,6 +32,10 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         statusField.text = ""
     }
     
+    @IBAction func refreshStatus(sender: AnyObject) {
+        displayUsrAlert()
+    }
+    
     func displayPrintAlert(file: NSURL) {
         alertView = UIAlertView(title: "Print Document",
             message: "Please enter gt username", delegate: self,
@@ -87,6 +91,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         var conn = NSURLConnection.connectionWithRequest(postRequest, delegate: self)
         if conn != nil {
             println("Request Successful")
+            getPrintStatus(usr)
         }
         else {
             println("Request Failed")

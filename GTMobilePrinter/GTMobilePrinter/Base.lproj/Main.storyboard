@@ -18,8 +18,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
-                                <rect key="frame" x="49" y="84" width="382" height="250"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <rect key="frame" x="49" y="65" width="382" height="269"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Authors:  Yiqi (Victor) Chen Yijie (Jimmy) Wang Menghang (Neil) Li " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-P1-hXn">
@@ -38,21 +38,30 @@
                                     <constraint firstAttribute="height" constant="88" id="esF-5c-Ix8"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="GT Web Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-aS-3gk">
-                                <rect key="frame" x="49" y="31" width="203" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doD-tR-wQw">
+                                <rect key="frame" x="0.0" y="21" width="480" height="44"/>
+                                <items>
+                                    <navigationItem title="GT Web Print" id="KW4-VE-RKF">
+                                        <barButtonItem key="rightBarButtonItem" title="Refresh" id="2qy-bx-D5O">
+                                            <connections>
+                                                <action selector="refreshStatus:" destination="BYZ-38-t0r" id="L5r-4m-d4V"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.91249765653215476" blue="0.17826002826042264" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="fhL-aS-3gk" secondAttribute="centerX" id="4iL-g1-fpw"/>
                             <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="5cN-tY-fNW"/>
                             <constraint firstAttribute="trailing" secondItem="s1s-5I-NFN" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-mL-heI"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="dDS-k9-8E6"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="jLd-J7-Ldj"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="le6-jx-Rcw"/>
                             <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="oy9-sx-MMK"/>
                             <constraint firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="ufs-ud-jNK"/>
                             <constraint firstItem="s1s-5I-NFN" firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" id="urc-cL-69I"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="bottom" secondItem="sot-Sw-PFS" secondAttribute="top" id="x0w-nf-rCE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -62,6 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="7" y="121"/>
         </scene>
     </scenes>
     <resources>
