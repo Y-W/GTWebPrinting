@@ -118,10 +118,10 @@ void list_pophead() {
 		list_tail = NULL;
 	}
 	file_list* tmp = list_head->next;
+	free(list_head->file_name);
 	free(list_head);
 	list_head = tmp;
 }
-
 
 char* status1 = "In Queue";
 char* status2 = "Printed";
@@ -130,9 +130,9 @@ int get_status(char* username, char* file_name) {
 	char sfn[1000];
 	sprintf(sfn, "%s\\%s.txt", status_directory, username);
 	char s1[1000];
-	sprintf(s1, "%s : %s\n",  file_name, status1);
+	sprintf(s1, "%s : %s\n", file_name, status1);
 	char s2[1000];
-	sprintf(s2, "%s : %s\n",  file_name, status2);
+	sprintf(s2, "%s : %s\n", file_name, status2);
 	FILE* fp = fopen(sfn, "r");
 	if (fp == NULL)
 		return 0;
@@ -156,9 +156,9 @@ void update_status(char* username, char* file_name, int flag) {
 	char sfn[1000];
 	sprintf(sfn, "%s\\%s.txt", status_directory, username);
 	char s1[1000];
-	sprintf(s1, "%s : %s\n",  file_name, status1);
+	sprintf(s1, "%s : %s\n", file_name, status1);
 	char s2[1000];
-	sprintf(s2, "%s : %s\n",  file_name, status2);
+	sprintf(s2, "%s : %s\n", file_name, status2);
 	FILE* fp = fopen(sfn, "r");
 	if (fp != NULL) {
 		char line[1000];
@@ -181,7 +181,6 @@ void update_status(char* username, char* file_name, int flag) {
 	system(cmd);
 }
 
-
 void scan_directory() {
 	DIR *dp;
 	struct dirent *dirp;
@@ -189,26 +188,72 @@ void scan_directory() {
 	while ((dirp = readdir(dp)) != NULL) {
 		if (dirp->d_name[0] == '.')
 			continue;
-		if (strchr(dirp->d_name, '-') == NULL)
-			continue;
 		printf("### %s %d\n", dirp->d_name, dirp->d_namlen);
+		char username[1000];
+		char filename[1000];
+		strcpy(username, dirp->d_name);
+		char* del_pos = strchr(username, '-');
+		strcpy(filename, del_pos + 1);
+		*del_pos = NULL;
+
+		if (get_status(username, filename) == 0) {
+			char* tmp = malloc(1000);
+			strcpy(tmp, dirp->d_name);
+			list_add(tmp);
+			update_status(username, filename, 1);
+		}
+		if (get_status(username, filename) == 1) {
+			// do nothing
+		}
+		if (get_status(username, filename) == 2) {
+			char* tmp = malloc(1000);
+			strcpy(tmp, dirp->d_name);
+			list_add(tmp);
+			update_status(username, filename, 1);
+		}
 	}
 	closedir(dp);
 }
 
-int main() {
-	printf("%d\n", get_status("a", "b-c.d"));
-	update_status("a", "b-c.d", 1);
-	update_status("a", "c-c.d", 1);
-	printf("%d\n", get_status("a", "b-c.d"));
-	update_status("a", "b-c.d", 2);
-	printf("%d\n", get_status("a", "b-c.d"));
-	update_status("a", "b-c.d", 0);
-	printf("%d\n", get_status("a", "b-c.d"));
+void printIfNeeded() {
+	if (list_head == NULL)
+		return;
+	char rp[1000];
+	sprintf("%s\\%s", upload_directory, list_head->file_name);
+	char ap[1000];
+	if (!realpath(rp, ap)) {
+		char username[1000];
+		strcpy(username, list_head->file_name);
+		char* pos = strchr(username, '-');
+		char printer[1000];
+		strcpy(printer, pos + 1);
+		*pos = NULL;
+		char status_name[1000];
+		strcpy(status_name, printer);
+		pos = strchr(printer, '-');
+		*pos = NULL;
+		pos = strchr(status_name, '.');
+		int file_type = -1;
+		if ((*(pos + 1) == 'p' || *(pos + 1) == 'P')
+				&& (*(pos + 2) == 'd' || *(pos + 2) == 'D')
+				&& (*(pos + 3) == 'f' || *(pos + 3) == 'F')) {
+			file_type = 0;
+		}
 
-//	scan_directory();
-//	printFile("E:\\TestPDF.pdf", "Mobile_black", 0);
-//	waitForPopup();
-//	keystroke("012abcD");
+		printFile(ap, printer, file_type);
+		waitForPopup();
+		char username_enter[1000];
+		sprintf(username_enter, "%s\n", username);
+		keystroke(username_enter);
+		Sleep(1000);
+
+		update_status(username, status_name, 2);
+	}
+	list_pophead();
+}
+
+int main() {
+	scan_directory();
+	printIfNeeded();
 	return 0;
 }
