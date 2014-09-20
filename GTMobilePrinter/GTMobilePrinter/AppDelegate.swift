@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
         var mycontroller = self.window?.rootViewController
+        if (mycontroller as ViewController).alertView != nil {
+            (mycontroller as ViewController).alertView!.dismissWithClickedButtonIndex(0, animated: false)
+        }
         (mycontroller as ViewController).displayPrintAlert(url)
         return true
     }
@@ -34,14 +37,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication!) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-        var mycontroller = self.window?.rootViewController
-        (mycontroller as ViewController).statusField.text = ""
+//        var mycontroller = self.window?.rootViewController
+//        (mycontroller as ViewController).statusField.text = ""
+        exit(0)
     }
 
     func applicationWillEnterForeground(application: UIApplication!) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        var mycontroller = self.window?.rootViewController
-        (mycontroller as ViewController).displayUsrAlert()
+//        var mycontroller = self.window?.rootViewController
+//        (mycontroller as ViewController).displayUsrAlert()
     }
 
     func applicationDidBecomeActive(application: UIApplication!) {

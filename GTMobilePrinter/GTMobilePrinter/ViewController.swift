@@ -20,6 +20,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     let postPath = "/printfile.php"
     let getPath = "/getstatus.php"
     var file: NSURL?
+    var alertView: UIAlertView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,24 +33,24 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     }
     
     func displayPrintAlert(file: NSURL) {
-        var alertView = UIAlertView(title: "Print Document",
+        alertView = UIAlertView(title: "Print Document",
             message: "Please enter gt username", delegate: self,
             cancelButtonTitle: "Cancel",
             otherButtonTitles: "GT_Mobile_Black", "GT_Mobile_Color")
-        alertView.tag = PRINT_DOCUMENT_ALERT
+        alertView!.tag = PRINT_DOCUMENT_ALERT
         self.file = file
-        alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput;
-        alertView.show()
+        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        alertView!.show()
     }
     
     func displayUsrAlert() {
-        var alertView = UIAlertView(title: "See Print Status",
+        alertView = UIAlertView(title: "See Print Status",
             message: "Please enter gt username", delegate: self,
             cancelButtonTitle: "Cancel",
             otherButtonTitles: "Continue")
-        alertView.tag = ENTER_USR_ALERT
-        alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput;
-        alertView.show()
+        alertView!.tag = ENTER_USR_ALERT
+        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        alertView!.show()
     }
     
     func printDocument(usr: String, printer: String) {
@@ -100,7 +101,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             .stringByAppendingString(usr)
         
         var statusData = NSData(contentsOfURL: NSURL(string: url))
-        statusField.text = NSString(data: statusData, encoding: NSUTF8StringEncoding)
+        statusField.text = NSString(format: "Print Status of %@: \n\n%@", usr, NSString(data: statusData, encoding: NSUTF8StringEncoding))
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
@@ -109,9 +110,11 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         if alertView.tag == PRINT_DOCUMENT_ALERT {
             if buttonIndex == 1 {
                 printDocument(usr, printer: "Mobile_black")
+                println("black")
             }
             if buttonIndex == 2 {
                 printDocument(usr, printer: "Mobile_color")
+                println("color")
             }
         }
         else {

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9B8FBCC619CDB13B007BACAF"
-               BuildableName = "GTMobilePrinter.app"
+               BuildableName = "GT Web Print.app"
                BlueprintName = "GTMobilePrinter"
                ReferencedContainer = "container:GTMobilePrinter.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B8FBCC619CDB13B007BACAF"
-            BuildableName = "GTMobilePrinter.app"
+            BuildableName = "GT Web Print.app"
             BlueprintName = "GTMobilePrinter"
             ReferencedContainer = "container:GTMobilePrinter.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B8FBCC619CDB13B007BACAF"
-            BuildableName = "GTMobilePrinter.app"
+            BuildableName = "GT Web Print.app"
             BlueprintName = "GTMobilePrinter"
             ReferencedContainer = "container:GTMobilePrinter.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9B8FBCC619CDB13B007BACAF"
-            BuildableName = "GTMobilePrinter.app"
+            BuildableName = "GT Web Print.app"
             BlueprintName = "GTMobilePrinter"
             ReferencedContainer = "container:GTMobilePrinter.xcodeproj">
          </BuildableReference>

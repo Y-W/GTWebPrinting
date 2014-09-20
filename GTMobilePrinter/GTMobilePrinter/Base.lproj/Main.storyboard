@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GTMobilePrinter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GT_Web_Print" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
                                 <rect key="frame" x="49" y="84" width="382" height="250"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -38,7 +38,7 @@
                                     <constraint firstAttribute="height" constant="88" id="esF-5c-Ix8"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GT Web Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-aS-3gk">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="GT Web Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-aS-3gk">
                                 <rect key="frame" x="49" y="31" width="203" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -47,9 +47,11 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.91249765653215476" blue="0.17826002826042264" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="fhL-aS-3gk" secondAttribute="centerX" id="4iL-g1-fpw"/>
                             <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="5cN-tY-fNW"/>
                             <constraint firstAttribute="trailing" secondItem="s1s-5I-NFN" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-mL-heI"/>
                             <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="oy9-sx-MMK"/>
+                            <constraint firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="ufs-ud-jNK"/>
                             <constraint firstItem="s1s-5I-NFN" firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" id="urc-cL-69I"/>
                         </constraints>
                     </view>
