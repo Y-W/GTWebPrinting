@@ -12,7 +12,9 @@ class ViewController: UIViewController, UIAlertViewDelegate {
                             
     let SELECT_PRINTER_ALERT = 1
     let PUT_USR_ALERT = 2
-    var key: Character?
+    
+    let serverhost = "192.168.1.120"
+    var file: NSURL?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,27 +32,27 @@ class ViewController: UIViewController, UIAlertViewDelegate {
             cancelButtonTitle: "Cancel",
             otherButtonTitles: "GT_Mobile_Black", "GT_Mobile_Color")
         alertView.tag = SELECT_PRINTER_ALERT
+        self.file = file
         alertView.alertViewStyle = UIAlertViewStyle.PlainTextInput;
-        objc_setAssociatedObject(alertView, &key, file, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
         alertView.show()
     }
     
-    func printDocument(file: NSURL, usr: String, printer: String) {
-        println(file.absoluteString)
+    func printDocument(usr: String, printer: String) {
+        println(file!.absoluteString)
         println(usr)
         println(printer)
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
         
+        println("hello world")
         if alertView.tag == SELECT_PRINTER_ALERT {
-            var file = objc_getAssociatedObject(alertView, &key) as NSURL
             var usr = alertView.textFieldAtIndex(0).text
             if buttonIndex == 1 {
-                printDocument(file, usr: usr, printer: "Mobile_black")
+                printDocument(usr, printer: "Mobile_black")
             }
             if buttonIndex == 2 {
-                printDocument(file, usr: usr, printer: "Mobile_color")
+                printDocument(usr, printer: "Mobile_color")
             }
         }
     }
