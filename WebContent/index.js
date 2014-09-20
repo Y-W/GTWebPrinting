@@ -16,11 +16,7 @@ $(document).ready(function(){
 		formData.append("ptr", $('#ptr').val());
 		$.each(files, function(key, value)
 		{
-<<<<<<< HEAD
 			formData.append("file", value);
-=======
-					formData.append("file", value);
->>>>>>> 91a5c6919973eb5de1885742051961217be3d49a
 		});
 		console.log(formData);
 		
