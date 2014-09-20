@@ -1,1 +1,2 @@
-gcc -o printKeystrke.exe printKeyStroke.c
+Open Adobe Reader BEFORE the program!!
+gcc -o GTWebPrinting_backend.exe GTWebPrinting_backend.c
