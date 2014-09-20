@@ -53,7 +53,7 @@ $(document).ready(function(){
 	
 	$("#queryWrapper").submit(function(){
 		event.preventDefault();
-		$.get("getstatus.php", $("#queryWrapper").serialize(), function(data){
+		$.get("http://192.168.1.120/getstatus.php", $("#queryWrapper").serialize(), function(data){
 			$("#usrinfo").html(data);
 		}, "text");
 		
