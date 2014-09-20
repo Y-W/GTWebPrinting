@@ -260,7 +260,8 @@ void printIfNeeded() {
 	list_pophead();
 }
 
-int main() {
+int main(int argc, char **argv) {
+	if (argc > 1) base_directory = argv[1];
 	while (1) {
 		scan_directory();
 		printIfNeeded();
