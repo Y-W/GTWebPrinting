@@ -55,7 +55,7 @@ $(document).ready(function(){
 	
 	$("#queryWrapper").submit(function(){
 		event.preventDefault();
-		$.get("getstatus", $("#queryWrapper").serialize(), function(data){
+		$.get("getstatus.php", $("#queryWrapper").serialize(), function(data){
 			console.log(data);
 			$("#usrInfo").html(data);
 		}, "text");
