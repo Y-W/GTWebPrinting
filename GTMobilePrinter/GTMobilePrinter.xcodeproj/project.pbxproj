@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B669EB319CE2DCF00F2712B /* GTWebPrinting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */; };
 		9B8FBCCD19CDB13B007BACAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCCC19CDB13B007BACAF /* AppDelegate.swift */; };
 		9B8FBCCF19CDB13B007BACAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCCE19CDB13B007BACAF /* ViewController.swift */; };
 		9B8FBCD219CDB13B007BACAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FBCD019CDB13B007BACAF /* Main.storyboard */; };
@@ -25,7 +26,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B8FBCC719CDB13B007BACAF /* GTMobilePrinter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTMobilePrinter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GTWebPrinting.png; sourceTree = "<group>"; };
+		9B8FBCC719CDB13B007BACAF /* GT Web Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT Web Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8FBCCB19CDB13B007BACAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8FBCCC19CDB13B007BACAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B8FBCCE19CDB13B007BACAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +56,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B669EB119CE2DC000F2712B /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		9B8FBCBE19CDB13B007BACAF = {
 			isa = PBXGroup;
 			children = (
@@ -66,7 +76,7 @@
 		9B8FBCC819CDB13B007BACAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9B8FBCC719CDB13B007BACAF /* GTMobilePrinter.app */,
+				9B8FBCC719CDB13B007BACAF /* GT Web Print.app */,
 				9B8FBCD919CDB13B007BACAF /* GTMobilePrinterTests.xctest */,
 			);
 			name = Products;
@@ -87,6 +97,7 @@
 		9B8FBCCA19CDB13B007BACAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B669EB119CE2DC000F2712B /* Images */,
 				9B8FBCCB19CDB13B007BACAF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -126,7 +137,7 @@
 			);
 			name = GTMobilePrinter;
 			productName = GTMobilePrinter;
-			productReference = 9B8FBCC719CDB13B007BACAF /* GTMobilePrinter.app */;
+			productReference = 9B8FBCC719CDB13B007BACAF /* GT Web Print.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9B8FBCD819CDB13B007BACAF /* GTMobilePrinterTests */ = {
@@ -189,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B669EB319CE2DCF00F2712B /* GTWebPrinting.png in Resources */,
 				9B8FBCD219CDB13B007BACAF /* Main.storyboard in Resources */,
 				9B8FBCD419CDB13B007BACAF /* Images.xcassets in Resources */,
 			);
@@ -332,7 +344,7 @@
 				INFOPLIST_FILE = GTMobilePrinter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "GT Web Print";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -347,7 +359,7 @@
 				INFOPLIST_FILE = GTMobilePrinter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "GT Web Print";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;

@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionDataDelegate {
                             
     @IBOutlet var statusField: UITextView
+    @IBOutlet var appLogo: UIImageView
     
     let PRINT_DOCUMENT_ALERT = 1
     let ENTER_USR_ALERT = 2
@@ -73,9 +74,6 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
 //        println(NSString(data: requestBody, encoding: NSUTF8StringEncoding))
         requestBody.appendData(fileData)
         requestBody.appendData(boundaryData)
-        
-//        println(fileData.length)
-//        println(NSString(data: fileData, encoding: NSUTF8StringEncoding))
         
         var url = "http://".stringByAppendingString(serverhost)
             .stringByAppendingString(postPath)

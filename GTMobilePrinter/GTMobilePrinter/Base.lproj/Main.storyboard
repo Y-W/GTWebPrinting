@@ -18,15 +18,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
-                                <rect key="frame" x="48" y="39" width="382" height="421"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="49" y="84" width="382" height="250"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Authors:  Yiqi (Victor) Chen Yijie (Jimmy) Wang Menghang (Neil) Li " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-P1-hXn">
+                                <rect key="frame" x="20" y="372" width="169" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="83" id="bh8-tt-Nnn"/>
+                                    <constraint firstAttribute="width" constant="169" id="unU-s4-Gyj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTWebPrinting.png" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-5I-NFN">
+                                <rect key="frame" x="372" y="372" width="88" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="88" id="Dam-dA-EyW"/>
+                                    <constraint firstAttribute="height" constant="88" id="esF-5c-Ix8"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GT Web Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhL-aS-3gk">
+                                <rect key="frame" x="49" y="31" width="203" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.91249765653215476" blue="0.17826002826042264" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="5cN-tY-fNW"/>
+                            <constraint firstAttribute="trailing" secondItem="s1s-5I-NFN" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-mL-heI"/>
+                            <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="oy9-sx-MMK"/>
+                            <constraint firstItem="s1s-5I-NFN" firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" id="urc-cL-69I"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="appLogo" destination="s1s-5I-NFN" id="2QR-xt-0qG"/>
                         <outlet property="statusField" destination="sot-Sw-PFS" id="noK-0J-vtF"/>
                     </connections>
                 </viewController>
@@ -34,4 +62,7 @@
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="GTWebPrinting.png" width="256" height="256"/>
+    </resources>
 </document>
