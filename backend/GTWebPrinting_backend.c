@@ -82,7 +82,7 @@ void waitForPopup() {
 		fp = fopen("tmp", "r");
 	}
 	fclose(fp);
-	Sleep(500);
+	Sleep(2000);
 }
 
 char* upload_directory = "uploads";
@@ -188,13 +188,13 @@ void scan_directory() {
 	while ((dirp = readdir(dp)) != NULL) {
 		if (dirp->d_name[0] == '.')
 			continue;
-		printf("### %s %d\n", dirp->d_name, dirp->d_namlen);
+//		printf("### %s %d\n", dirp->d_name, dirp->d_namlen);
 		char username[1000];
 		char filename[1000];
 		strcpy(username, dirp->d_name);
 		char* del_pos = strchr(username, '-');
 		strcpy(filename, del_pos + 1);
-		*del_pos = NULL;
+		*del_pos = 0;
 
 		if (get_status(username, filename) == 0) {
 			char* tmp = malloc(1000);
@@ -215,23 +215,28 @@ void scan_directory() {
 	closedir(dp);
 }
 
+char* base_directory = "E:\\GTWebPrinting\\backend";
+
 void printIfNeeded() {
-	if (list_head == NULL)
+	if (list_head == NULL) {
+		Sleep(500);
 		return;
+	}
 	char rp[1000];
-	sprintf("%s\\%s", upload_directory, list_head->file_name);
+	sprintf(rp, "%s\\%s", upload_directory, list_head->file_name);
 	char ap[1000];
-	if (!realpath(rp, ap)) {
+	sprintf(ap, "%s\\%s", base_directory, rp);
+	if (1) {
 		char username[1000];
 		strcpy(username, list_head->file_name);
 		char* pos = strchr(username, '-');
 		char printer[1000];
 		strcpy(printer, pos + 1);
-		*pos = NULL;
+		*pos = 0;
 		char status_name[1000];
 		strcpy(status_name, printer);
 		pos = strchr(printer, '-');
-		*pos = NULL;
+		*pos = 0;
 		pos = strchr(status_name, '.');
 		int file_type = -1;
 		if ((*(pos + 1) == 'p' || *(pos + 1) == 'P')
@@ -247,13 +252,18 @@ void printIfNeeded() {
 		keystroke(username_enter);
 		Sleep(1000);
 
+		char cmd[10000];
+		sprintf(cmd, "del %s", ap);
+		system(cmd);
 		update_status(username, status_name, 2);
 	}
 	list_pophead();
 }
 
 int main() {
-	scan_directory();
-	printIfNeeded();
+	while (1) {
+		scan_directory();
+		printIfNeeded();
+	}
 	return 0;
 }
