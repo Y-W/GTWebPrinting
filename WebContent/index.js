@@ -8,7 +8,7 @@ $(document).ready(function(){
 	  console.log(files[0]);
 	});
 	
-	$("#wrapper").submit(function(event){
+	$("#releaseWrapper").submit(function(event){
 		event.preventDefault();
 		console.log("ajax submit");
 		var formData = new FormData();
@@ -16,14 +16,12 @@ $(document).ready(function(){
 		formData.append("ptr", $('#ptr').val());
 		$.each(files, function(key, value)
 		{
-					formData.append(key, value);
+			formData.append("file", value);
 		});
 		console.log(formData);
 		
-		
-		//$.post("http://192.168.1.120/printfile.php", formData, function(data){});
 		$.ajax({
-	        url: 'http://192.168.1.120/printfile.php',
+	        url: 'printfile.php',
 	        type: 'POST',
 	        data: formData,
 	        cache: false,
@@ -42,6 +40,7 @@ $(document).ready(function(){
 	        		// Handle errors here
 	        		console.log('ERRORS: ' + data.error);
 	        	}
+	        	alert("we received your files");
 	        },
 	        error: function(jqXHR, textStatus, errorThrown)
 	        {
@@ -51,4 +50,13 @@ $(document).ready(function(){
 	        }
 		});
 	});
+	
+	$("#queryWrapper").submit(function(){
+		event.preventDefault();
+		$.get("getstatus.php", $("#queryWrapper").serialize(), function(data){
+			$("#usrinfo").html(data);
+		}, "text");
+		
+	});
+	
 });
