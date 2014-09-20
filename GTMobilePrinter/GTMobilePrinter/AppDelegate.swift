@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication!, openURL url: NSURL!, sourceApplication: String!, annotation: AnyObject!) -> Bool {
         var mycontroller = self.window?.rootViewController
-        (mycontroller as ViewController).selectPrinter(url)
+        (mycontroller as ViewController).displayPrintAlert(url)
         return true
     }
 

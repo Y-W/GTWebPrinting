@@ -226,6 +226,7 @@ void printIfNeeded() {
 	sprintf(rp, "%s\\%s", upload_directory, list_head->file_name);
 	char ap[1000];
 	sprintf(ap, "%s\\%s", base_directory, rp);
+	printf("%s\n", ap);
 	if (1) {
 		char username[1000];
 		strcpy(username, list_head->file_name);
@@ -260,7 +261,9 @@ void printIfNeeded() {
 	list_pophead();
 }
 
-int main() {
+int main(int argc, char **argv) {
+	if (argc > 1) base_directory = argv[1];
+	printf("%s\n", base_directory);
 	while (1) {
 		scan_directory();
 		printIfNeeded();
