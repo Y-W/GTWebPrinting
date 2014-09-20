@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+<title>GTWebPrint</title>
+</head>
+<body>
+<form id="wrapper" enctype="multipart/form-data" action="http://192.168.1.120/printfile.php" method="POST">
+	<table>
+	<tr>
+		<td>GT username</td> 
+		<td>
+			<input type="text" name="usr" id="usr"><br>
+		</td>
+	</tr>
+	<tr>
+		<td>Printer</td>
+		<td>	
+			<select name="ptr" form="wrapper" id="ptr">
+				<option>Choose a printer</option>
+				<option value="Mobile_black">MobileBlack</option>
+				<option value="Mobile_color">MobileColor</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td>Please specify a file</td>
+		<td>
+			<input type="file" name="file" id="file">
+		</td>
+	</tr>	
+	<tr>
+		<td><input type="submit" name="submit" value="Submit"></td>
+	</tr>
+	</table>
+</form>
+
+<p></p>
+
+</body>
+</html>
