@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
                             
     @IBOutlet var statusField: UITextView
     @IBOutlet var appLogo: UIImageView
+    @IBOutlet var apptitle: UILabel
     
     let PRINT_DOCUMENT_ALERT = 1
     let ENTER_USR_ALERT = 2
@@ -26,6 +27,10 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UIDevice.currentDevice().userInterfaceIdiom != .Pad {
+            appLogo.hidden = true
+            apptitle.hidden = true
+        }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
