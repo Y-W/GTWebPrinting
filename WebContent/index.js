@@ -30,7 +30,7 @@ $(document).ready(function(){
 	        contentType: false,
 	        success: function(data, textStatus, jqXHR)
 	        {
-	        	console.log("we received your files");
+	        	$('#successMessage').html("File uploaded");
 	        	if(typeof data.error === 'undefined')
 	        	{
 	        		// Success so call function to process the form
@@ -45,7 +45,7 @@ $(document).ready(function(){
 	        },
 	        error: function(jqXHR, textStatus, errorThrown)
 	        {
-	        	$('#successMessage').html("File uploaded");
+	        	
 	        	// Handle errors here
 	        	console.log('ERRORS: ' + textStatus);
 	        	// STOP LOADING SPINNER
