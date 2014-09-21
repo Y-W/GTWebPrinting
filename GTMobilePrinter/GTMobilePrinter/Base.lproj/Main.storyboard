@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
                                 <rect key="frame" x="49" y="362" width="672" height="517"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="517" id="cN4-38-CdN"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -52,13 +55,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RHf-WE-0kV">
+                                <rect key="frame" x="20" y="91" width="728" height="577"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="doD-tR-wQw" secondAttribute="trailing" id="4lJ-nc-HUF"/>
+                            <constraint firstItem="u4V-P1-hXn" firstAttribute="top" secondItem="sot-Sw-PFS" secondAttribute="bottom" constant="37" id="BTj-3V-zwY"/>
+                            <constraint firstItem="sot-Sw-PFS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="49" id="Du6-a0-DMl"/>
+                            <constraint firstAttribute="trailing" secondItem="RHf-WE-0kV" secondAttribute="trailing" constant="20" id="Fgd-vm-dMZ"/>
                             <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="Jnm-o3-cpC"/>
+                            <constraint firstAttribute="trailing" secondItem="sot-Sw-PFS" secondAttribute="trailing" constant="47" id="JxG-u7-lm3"/>
                             <constraint firstItem="s1s-5I-NFN" firstAttribute="top" secondItem="doD-tR-wQw" secondAttribute="bottom" constant="40" id="NIb-me-KYe"/>
                             <constraint firstItem="doD-tR-wQw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="QJj-tA-JmK"/>
+                            <constraint firstItem="RHf-WE-0kV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="TYM-QC-vU0"/>
                             <constraint firstItem="doD-tR-wQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UZu-Dt-S0g"/>
                             <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="aob-JJ-pry"/>
                         </constraints>
@@ -71,7 +84,8 @@
                     <connections>
                         <outlet property="appLogo" destination="s1s-5I-NFN" id="2QR-xt-0qG"/>
                         <outlet property="apptitle" destination="AoH-M5-gn7" id="MJh-pH-7c5"/>
-                        <outlet property="statusField" destination="sot-Sw-PFS" id="noK-0J-vtF"/>
+                        <outlet property="ipadStatusField" destination="sot-Sw-PFS" id="ldS-xh-EQ7"/>
+                        <outlet property="iphoneStatusField" destination="RHf-WE-0kV" id="WcT-am-vOi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

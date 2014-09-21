@@ -10,14 +10,16 @@ import UIKit
 
 class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionDataDelegate {
                             
-    @IBOutlet var statusField: UITextView
+    @IBOutlet var iphoneStatusField: UITextView
+    @IBOutlet var ipadStatusField: UITextView
+    var statusField: UITextView?
     @IBOutlet var appLogo: UIImageView
     @IBOutlet var apptitle: UILabel
     
     let PRINT_DOCUMENT_ALERT = 1
     let ENTER_USR_ALERT = 2
     
-    let serverhost = "143.215.204.99"
+    let serverhost = "128.61.24.145"
     let postPath = "/printfile.php"
     let getPath = "/getstatus.php"
     
@@ -30,13 +32,19 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         if UIDevice.currentDevice().userInterfaceIdiom != .Pad {
             appLogo.hidden = true
             apptitle.hidden = true
+            ipadStatusField.hidden = true
+            statusField = iphoneStatusField
+        }
+        else {
+            iphoneStatusField.hidden = true
+            statusField = ipadStatusField
         }
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        statusField.text = ""
+        statusField!.text = ""
     }
     
     @IBAction func refreshStatus(sender: AnyObject) {
@@ -136,7 +144,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             .stringByAppendingString(usr)
         
         var statusData = NSData(contentsOfURL: NSURL(string: url))
-        statusField.text = NSString(format: "Print Status of %@: \n\n%@", usr, NSString(data: statusData, encoding: NSUTF8StringEncoding))
+        statusField!.text = NSString(format: "Print Status of %@: \n\n%@", usr, NSString(data: statusData, encoding: NSUTF8StringEncoding))
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
