@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     let PRINT_DOCUMENT_ALERT = 1
     let ENTER_USR_ALERT = 2
     
-    let serverhost = "143.215.207.182"
+    let serverhost = "143.215.204.99"
     let postPath = "/printfile.php"
     let getPath = "/getstatus.php"
     
