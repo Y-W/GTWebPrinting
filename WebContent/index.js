@@ -33,8 +33,7 @@ $(document).ready(function(){
 	        	$('#successMessage').html("File uploaded");
 	        	if(typeof data.error === 'undefined')
 	        	{
-	        		// Success so call function to process the form
-	        		submitForm(event, data);
+	        		console.log('undefined');
 	        	}
 	        	else
 	        	{
@@ -56,7 +55,7 @@ $(document).ready(function(){
 	$("#queryWrapper").submit(function(){
 		event.preventDefault();
 		$('#successMessage').empty();
-		$.get("no.text", $("#queryWrapper").serialize(), function(data){
+		$.get("getstatus.php", $("#queryWrapper").serialize(), function(data){
 			$("#jobs").remove();
 			console.log(data);
 			//$("#usrInfo").html(data);
