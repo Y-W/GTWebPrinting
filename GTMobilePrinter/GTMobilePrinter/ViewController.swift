@@ -44,7 +44,9 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        statusField!.text = ""
+        if statusField != nil {
+            statusField!.text = ""
+        }
     }
     
     @IBAction func refreshStatus(sender: AnyObject) {
@@ -144,7 +146,9 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             .stringByAppendingString(usr)
         
         var statusData = NSData(contentsOfURL: NSURL(string: url))
-        statusField!.text = NSString(format: "Print Status of %@: \n\n%@", usr, NSString(data: statusData, encoding: NSUTF8StringEncoding))
+        if statusField != nil {
+            statusField!.text = NSString(format: "Print Status of %@: \n\n%@", usr, NSString(data: statusData, encoding: NSUTF8StringEncoding))
+        }
     }
     
     func alertView(alertView: UIAlertView!, didDismissWithButtonIndex buttonIndex: Int) {
