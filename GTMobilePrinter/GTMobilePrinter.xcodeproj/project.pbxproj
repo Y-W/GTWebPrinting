@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9B669EB319CE2DCF00F2712B /* GTWebPrinting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */; };
+		9B669EB519CE602E00F2712B /* apptitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B669EB419CE602E00F2712B /* apptitle.png */; };
 		9B8FBCCD19CDB13B007BACAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCCC19CDB13B007BACAF /* AppDelegate.swift */; };
 		9B8FBCCF19CDB13B007BACAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8FBCCE19CDB13B007BACAF /* ViewController.swift */; };
 		9B8FBCD219CDB13B007BACAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B8FBCD019CDB13B007BACAF /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = GTWebPrinting.png; sourceTree = "<group>"; };
+		9B669EB419CE602E00F2712B /* apptitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apptitle.png; sourceTree = "<group>"; };
 		9B8FBCC719CDB13B007BACAF /* GT Web Print.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GT Web Print.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B8FBCCB19CDB13B007BACAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9B8FBCCC19CDB13B007BACAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		9B669EB119CE2DC000F2712B /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				9B669EB419CE602E00F2712B /* apptitle.png */,
 				9B669EB219CE2DCF00F2712B /* GTWebPrinting.png */,
 			);
 			name = Images;
@@ -202,6 +205,7 @@
 			files = (
 				9B669EB319CE2DCF00F2712B /* GTWebPrinting.png in Resources */,
 				9B8FBCD219CDB13B007BACAF /* Main.storyboard in Resources */,
+				9B669EB519CE602E00F2712B /* apptitle.png in Resources */,
 				9B8FBCD419CDB13B007BACAF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +350,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "GT Web Print";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -361,6 +366,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "GT Web Print";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

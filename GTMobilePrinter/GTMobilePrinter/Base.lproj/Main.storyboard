@@ -14,32 +14,28 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
-                                <rect key="frame" x="48" y="65" width="382" height="269"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
+                                <rect key="frame" x="49" y="362" width="672" height="517"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Authors:  Yiqi (Victor) Chen Yijie (Jimmy) Wang Menghang (Neil) Li " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-P1-hXn">
-                                <rect key="frame" x="20" y="372" width="169" height="88"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" editable="NO" text="Authors:  Yiqi (Victor) Chen Yijie (Jimmy) Wang Menghang (Neil) Li " selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4V-P1-hXn">
+                                <rect key="frame" x="20" y="916" width="169" height="88"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="83" id="bh8-tt-Nnn"/>
-                                    <constraint firstAttribute="width" constant="169" id="unU-s4-Gyj"/>
+                                    <constraint firstAttribute="height" constant="88" id="GPK-3z-VCr"/>
+                                    <constraint firstAttribute="width" constant="169" id="V61-u8-Qlk"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="GTWebPrinting.png" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-5I-NFN">
-                                <rect key="frame" x="372" y="372" width="88" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="Dam-dA-EyW"/>
-                                    <constraint firstAttribute="height" constant="88" id="esF-5c-Ix8"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="GTWebPrinting.png" translatesAutoresizingMaskIntoConstraints="NO" id="s1s-5I-NFN">
+                                <rect key="frame" x="57" y="105" width="220" height="220"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doD-tR-wQw">
-                                <rect key="frame" x="0.0" y="21" width="480" height="44"/>
+                                <rect key="frame" x="0.0" y="21" width="768" height="44"/>
                                 <items>
                                     <navigationItem title="GT Web Print" id="KW4-VE-RKF">
                                         <barButtonItem key="rightBarButtonItem" title="Refresh" id="2qy-bx-D5O">
@@ -50,24 +46,31 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" GT Web Print" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoH-M5-gn7">
+                                <rect key="frame" x="303" y="162" width="450" height="105"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="66"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.91249765653215476" blue="0.17826002826042264" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="5cN-tY-fNW"/>
-                            <constraint firstItem="sot-Sw-PFS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="49" id="cXL-9g-dgc"/>
-                            <constraint firstAttribute="trailing" secondItem="s1s-5I-NFN" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-mL-heI"/>
-                            <constraint firstItem="doD-tR-wQw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="dDS-k9-8E6"/>
-                            <constraint firstItem="s1s-5I-NFN" firstAttribute="top" secondItem="sot-Sw-PFS" secondAttribute="bottom" constant="38" id="iTb-gx-Wit"/>
-                            <constraint firstItem="doD-tR-wQw" firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="jLd-J7-Ldj"/>
-                            <constraint firstItem="doD-tR-wQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="le6-jx-Rcw"/>
-                            <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="oy9-sx-MMK"/>
-                            <constraint firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="ufs-ud-jNK"/>
-                            <constraint firstItem="s1s-5I-NFN" firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" id="urc-cL-69I"/>
-                            <constraint firstItem="doD-tR-wQw" firstAttribute="bottom" secondItem="sot-Sw-PFS" secondAttribute="top" id="x0w-nf-rCE"/>
+                            <constraint firstAttribute="trailing" secondItem="doD-tR-wQw" secondAttribute="trailing" id="4lJ-nc-HUF"/>
+                            <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="Jnm-o3-cpC"/>
+                            <constraint firstItem="s1s-5I-NFN" firstAttribute="top" secondItem="doD-tR-wQw" secondAttribute="bottom" constant="40" id="NIb-me-KYe"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="QJj-tA-JmK"/>
+                            <constraint firstItem="doD-tR-wQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UZu-Dt-S0g"/>
+                            <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" symbolic="YES" id="aob-JJ-pry"/>
                         </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad">
+                        <size key="portraitSize" width="768" height="1024"/>
+                        <size key="landscapeSize" width="1024" height="768"/>
+                    </simulatedScreenMetrics>
                     <connections>
                         <outlet property="appLogo" destination="s1s-5I-NFN" id="2QR-xt-0qG"/>
+                        <outlet property="apptitle" destination="AoH-M5-gn7" id="MJh-pH-7c5"/>
                         <outlet property="statusField" destination="sot-Sw-PFS" id="noK-0J-vtF"/>
                     </connections>
                 </viewController>
