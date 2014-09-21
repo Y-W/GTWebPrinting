@@ -78,11 +78,14 @@ $(document).ready(function(){
 						status += (value + " ");
 					}
 				});
-				$("<tr><td align=center>" + i + "</td><td>" + fileName + "</td><td>" + status + "</td></tr>").insertAfter('#jobs tr:first');
+				if (fileName !="" && status !="") {
+					$("<tr><td align=center>" + i + "</td><td>" + fileName + "</td><td>" + status + "</td></tr>").insertAfter('#jobs tr:first');
+				}
+				
 				i++;
 				console.log(fileName);
 				console.log(status);
-				filename = "";
+				fileName = "";
 				status = "";
 			});
 			console.log($.type(data));
