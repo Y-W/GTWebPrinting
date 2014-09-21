@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sot-Sw-PFS">
-                                <rect key="frame" x="49" y="65" width="382" height="269"/>
+                                <rect key="frame" x="48" y="65" width="382" height="269"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -54,8 +54,10 @@
                         <color key="backgroundColor" red="1" green="0.91249765653215476" blue="0.17826002826042264" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="u4V-P1-hXn" secondAttribute="bottom" constant="20" symbolic="YES" id="5cN-tY-fNW"/>
+                            <constraint firstItem="sot-Sw-PFS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="49" id="cXL-9g-dgc"/>
                             <constraint firstAttribute="trailing" secondItem="s1s-5I-NFN" secondAttribute="trailing" constant="20" symbolic="YES" id="dCZ-mL-heI"/>
                             <constraint firstItem="doD-tR-wQw" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="1" id="dDS-k9-8E6"/>
+                            <constraint firstItem="s1s-5I-NFN" firstAttribute="top" secondItem="sot-Sw-PFS" secondAttribute="bottom" constant="38" id="iTb-gx-Wit"/>
                             <constraint firstItem="doD-tR-wQw" firstAttribute="centerX" secondItem="sot-Sw-PFS" secondAttribute="centerX" id="jLd-J7-Ldj"/>
                             <constraint firstItem="doD-tR-wQw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="le6-jx-Rcw"/>
                             <constraint firstItem="u4V-P1-hXn" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="oy9-sx-MMK"/>

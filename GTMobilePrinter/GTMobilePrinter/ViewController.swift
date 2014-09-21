@@ -16,9 +16,11 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     let PRINT_DOCUMENT_ALERT = 1
     let ENTER_USR_ALERT = 2
     
-    let serverhost = "192.168.1.120"
+    let serverhost = "143.215.207.182"
     let postPath = "/printfile.php"
     let getPath = "/getstatus.php"
+    
+    var username: String?
     var file: NSURL?
     var alertView: UIAlertView?
     
@@ -43,7 +45,10 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             otherButtonTitles: "GT_Mobile_Black", "GT_Mobile_Color")
         alertView!.tag = PRINT_DOCUMENT_ALERT
         self.file = file
-        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        if username != nil {
+            alertView!.textFieldAtIndex(0).text = username
+        }
         alertView!.show()
     }
     
@@ -53,11 +58,25 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
             cancelButtonTitle: "Cancel",
             otherButtonTitles: "Continue")
         alertView!.tag = ENTER_USR_ALERT
-        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput;
+        alertView!.alertViewStyle = UIAlertViewStyle.PlainTextInput
+        if username != nil {
+            alertView!.textFieldAtIndex(0).text = username
+        }
         alertView!.show()
     }
     
     func printDocument(usr: String, printer: String) {
+        
+        if usr.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+            return
+        }
+        username = usr
+        
+        var paths = file?.absoluteString.componentsSeparatedByString("/")
+        var filename = paths![paths!.count - 1]
+        if !filename.hasSuffix(".pdf") {
+            filename += ".pdf"
+        }
         
         var boundary = "---------------------------14737809831466499882746641449"
         var boundaryData = NSString(format: "\r\n--%@\r\n", boundary).dataUsingEncoding(NSUTF8StringEncoding)
@@ -74,7 +93,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         requestBody.appendData(printer.dataUsingEncoding(NSUTF8StringEncoding))
         requestBody.appendData(boundaryData)
         
-        requestBody.appendData("Content-Disposition: form-data; name=\"file\"; filename=\"file_from_ios.pdf\"\r\n".dataUsingEncoding(NSUTF8StringEncoding))
+        requestBody.appendData(NSString(format: "Content-Disposition: form-data; name=\"file\"; filename=\"%@\"\r\n", filename).dataUsingEncoding(NSUTF8StringEncoding))
         requestBody.appendData("Content-Type: application/pdf\r\n\r\n".dataUsingEncoding(NSUTF8StringEncoding))
 //        println(NSString(data: requestBody, encoding: NSUTF8StringEncoding))
         requestBody.appendData(fileData)
@@ -91,6 +110,7 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         var conn = NSURLConnection.connectionWithRequest(postRequest, delegate: self)
         if conn != nil {
             println("Request Successful")
+            sleep(2)
             getPrintStatus(usr)
         }
         else {
@@ -99,6 +119,11 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
     }
     
     func getPrintStatus(usr: String) {
+        
+        if usr.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+            return
+        }
+        username = usr
         
         var url = "http://".stringByAppendingString(serverhost)
             .stringByAppendingString(getPath)
@@ -115,11 +140,9 @@ class ViewController: UIViewController, UIAlertViewDelegate, NSURLConnectionData
         if alertView.tag == PRINT_DOCUMENT_ALERT {
             if buttonIndex == 1 {
                 printDocument(usr, printer: "Mobile_black")
-                println("black")
             }
             if buttonIndex == 2 {
                 printDocument(usr, printer: "Mobile_color")
-                println("color")
             }
         }
         else {
